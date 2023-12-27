@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Página com Sidebar";
+}
+
+<!-- Conteúdo principal -->
+<main class="col-md-10 mx-auto">
+    <form class="row g-3">
+        <div class="col-md-4">
+            <label for="inputZip" class="form-label">PTN</label>
+            <input type="text" class="form-control" id="">
+        </div>
+        <div class="col-md-6">
+            <label for="inputZip" class="form-label">SKU</label>
+            <input type="text" class="form-control" id="">
+        </div>
+        <div class="col-4">
+            <label for="inputAddress" class="form-label">Serie</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="">
+        </div>
+        <div class="col-md-4">
+            <label for="inputState" class="form-label">Status</label>
+            <select id="inputState" class="form-select">
+                <option selected></option>
+                <option>Quebrado</option>
+                <option>Sem Defeito</option>
+                <option>Funcional</option>
+            </select>
+        </div>
+        <div class="col-md-12">
+            <label for="inputCity" class="form-label">Observação</label>
+            <input type="text" class="form-control" id="inputCity">
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-12"></div>
+        <div class="col-12">
+            <a class="btn btn-primary">SALVAR</a>
+            <button type="submit" asp-controller="Home" asp-action="Index" class="btn btn-dark text-white">VOLTAR</button>
+        </div>
+    </form>
+</main>

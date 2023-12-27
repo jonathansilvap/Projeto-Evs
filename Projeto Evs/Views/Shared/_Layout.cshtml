@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EVS</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/EVS.styles.css" asp-append-version="true" />
+   <style> 
+        .custom-bg-dark {
+            background-color: #000; /* Cor de fundo preto */
+        }
+
+        #sidebar {
+            height: 100vh; /* Altura total da janela */
+        }
+
+            #sidebar .btn {
+                width: 100%; /* Largura total dos botões */
+                margin-bottom: 8px; /* Espaçamento entre os botões */
+            }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="wrapper">
+        <!--Top menu -->
+        <div class="sidebar">
+            <!--profile image & text-->
+            <div class="profile">
+                <img src="~/css/logolg.png" />
+                <h3>Ruza Service</h3>
+                
+            </div>
+            <!--menu item-->
+            <ul>
+                <li>
+                    <a asp-controller="Produto" asp-action="Index">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Entrada</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Produto" asp-action="Index">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Triagem</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Produto" asp-action="Index">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Peças</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Produto" asp-action="Index">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Conserto</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Produto" asp-action="Index">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Saída</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Produto" asp-action="Index">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Consulta</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Produto" asp-action="Index">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Adm</span>
+                    </a>
+                </li>
+
+            </ul>
+            <div class="mb-4 text-center">
+                <div id="sidebar-clock" class="text-white mb-2"></div>
+                <div id="sidebar-date" class="text-white mb-4"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="top_navbar">
+            <div class="hamburger">
+                <a href="#"><i class="fas fa-bars"></i></a> 
+            </div>
+        </div> 
+    </div>
+    
+    <script>
+        var hamburger = document.querySelector(".hamburger");
+        hamburger.addEventListener("click", function(){
+            document.querySelector("body").classList.toggle("active");
+        })
+    </script>
+    
+    <div class="container-fluid d-flex">
+        <button class="btn btn-dark d-md-none" id="sidebarToggle">Toggle Sidebar</button>
+        <!-- Sidebar -->
+        
+               <!--<nav id="sidebar" class="col-md-2 custom-bg-dark d-flex flex-column align-items-center p-3">-->
+            <!-- Relógio e data na parte superior da sidebar -->
+            <!-- <div class="mb-4 text-center">-->
+              <!--  <div id="sidebar-clock" class="text-white mb-2"></div> -->
+              <!--  <div id="sidebar-date" class="text-white mb-4"></div> -->
+            <!-- </div> -->
+
+        <!-- Restante do conteúdo -->
+
+        <div class="col-md-10 d-flex flex-column">
+            <header>
+                <!--<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">-->
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                            <ul class="navbar-nav flex-grow-1">
+                                <li class="nav-item">
+                                    <a   class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="MenuAdm" asp-action="Index">Administrativo</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> 
+                </nav>
+            </header>
+
+            <main role="main" class="pb-3">
+                <!-- Conteúdo principal -->
+                @RenderBody()
+            </main>
+
+            <footer class="border-top footer text-muted mt-auto">
+                <div class="container">
+                    &copy; 2023 <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+            </footer>
+        </div>-->
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            // Formatação para garantir que os valores tenham sempre dois dígitos
+            hours = hours < 10 ? '0' + hours : hours;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            var timeString = hours + ':' + minutes + ':' + seconds;
+
+            document.getElementById('sidebar-clock').innerHTML = '<h5 class="text-white">' + timeString + '</h5>';
+
+            // Correção para formatar a data em português
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            var dateString = now.toLocaleDateString('pt-BR', options);
+
+            document.getElementById('sidebar-date').innerHTML = '<p class="text-white">' + dateString + '</p>';
+        }
+
+        // Atualizar o relógio a cada segundo
+        setInterval(updateClock, 1000); 
+
+        // Inicializar o relógio quando a página é carregada
+        window.onload = updateClock;
+
+
+    </script>
+
+</body>
+</html>
